@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/amazon/acm/certificate.json",
+  "title": "Amazon Certificate Manager Certificate",
+  "description": "Represents an ACM SSL/TLS certificate with its associated metadata, domain validation, and lifecycle information.",
+  "type": "object",
+  "required": ["certificateArn", "domainName"],
+  "properties": {
+    "certificateArn": {
+      "type": "string",
+      "description": "The Amazon Resource Name (ARN) of the certificate.",
+      "pattern": "^arn:aws:acm:[a-z0-9-]+:[0-9]{12}:certificate/.+$"
+    },
+    "domainName": {
+      "type": "string",
+      "description": "The fully qualified domain name for the certificate."
+    },
+    "subjectAlternativeNames": {
+      "type": "array",
+      "description": "One or more domain names (subject alternative names) included in the certificate.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "description": "The status of the certificate.",
+      "enum": [
+        "PENDING_VALIDATION",
+        "ISSUED",
+        "INACTIVE",
+        "REVOKED",
+        "EXPIRED",
+        "VALIDATION_TIMED_OUT",
+        "FAILED"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": "The source of the certificate.",
+      "enum": [
+        "IMPORTED",
+        "AMAZON_ISSUED",
+        "PRIVATE"
+      ]
+    },
+    "issuer": {
+      "type": "string",
+      "description": "The name of the certificate authority that issued the certificate."
+    },
+    "serial": {
+      "type": "string",
+      "description": "The serial number of the certificate."
+    },
+    "keyAlgorithm": {
+      "type": "string",
+      "description": "The algorithm used to generate the key pair.",
+      "enum": [
+        "RSA_1024",
+        "RSA_2048",
+        "RSA_3072",
+        "RSA_4096",
+        "EC_prime256v1",
+        "EC_secp384r1",
+        "EC_secp521r1"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time at which the certificate was requested."
+    },
+    "issuedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time at which the certificate was issued."
+    },
+    "notBefore": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time before which the certificate is not valid."
+    },
+    "notAfter": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time after which the certificate is not valid."
+    },
+    "renewalEligibility": {
+      "type": "string",
+      "description": "Whether the certificate is eligible for renewal.",
+      "enum": [
+        "ELIGIBLE",
+        "INELIGIBLE"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

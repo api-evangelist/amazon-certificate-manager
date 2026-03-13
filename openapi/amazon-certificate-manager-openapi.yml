@@ -1,0 +1,328 @@
+openapi: 3.1.0
+info:
+  title: Amazon Certificate Manager API
+  description: >-
+    AWS Certificate Manager (ACM) handles the complexity of creating, storing,
+    and renewing public and private SSL/TLS X.509 certificates and keys that
+    protect your AWS websites and applications.
+  version: '2015-12-08'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/contact-us/
+  termsOfService: https://aws.amazon.com/service-terms/
+externalDocs:
+  description: Amazon Certificate Manager API Reference
+  url: https://docs.aws.amazon.com/acm/latest/APIReference/
+servers:
+  - url: https://acm.{region}.amazonaws.com
+    description: Amazon Certificate Manager Regional Endpoint
+    variables:
+      region:
+        default: us-east-1
+        description: AWS Region
+tags:
+  - name: Certificates
+    description: Operations for requesting, describing, and managing SSL/TLS certificates
+  - name: Tags
+    description: Operations for managing certificate tags
+paths:
+  /:
+    post:
+      operationId: RequestCertificate
+      summary: Request a certificate
+      description: >-
+        Requests an ACM certificate for use with other AWS services. You can
+        request a public certificate validated via DNS or email, or a private
+        certificate issued by a private certificate authority (CA).
+      tags:
+        - Certificates
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestCertificateRequest'
+      responses:
+        '200':
+          description: Certificate requested successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestCertificateResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidParameterException'
+        '429':
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsException'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+
+  /certificates:
+    get:
+      operationId: ListCertificates
+      summary: List certificates
+      description: >-
+        Retrieves a list of certificate ARNs and domain names. You can filter
+        the list by certificate status.
+      tags:
+        - Certificates
+      parameters:
+        - name: maxItems
+          in: query
+          description: Maximum number of certificates to return.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 1000
+        - name: nextToken
+          in: query
+          description: Token for pagination.
+          schema:
+            type: string
+        - name: certificateStatuses
+          in: query
+          description: Filter by certificate status.
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - PENDING_VALIDATION
+                - ISSUED
+                - INACTIVE
+                - REVOKED
+                - EXPIRED
+                - VALIDATION_TIMED_OUT
+                - FAILED
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCertificatesResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidParameterException'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+
+  /certificates/{certificateArn}:
+    get:
+      operationId: DescribeCertificate
+      summary: Describe a certificate
+      description: >-
+        Returns detailed metadata about the specified ACM certificate,
+        including domain name, status, and validation information.
+      tags:
+        - Certificates
+      parameters:
+        - name: certificateArn
+          in: path
+          required: true
+          description: The ARN of the ACM certificate.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeCertificateResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidParameterException'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+    delete:
+      operationId: DeleteCertificate
+      summary: Delete a certificate
+      description: >-
+        Deletes a certificate and its associated private key. You cannot delete
+        a certificate that is in use by another AWS service.
+      tags:
+        - Certificates
+      parameters:
+        - name: certificateArn
+          in: path
+          required: true
+          description: The ARN of the ACM certificate to delete.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Certificate deleted
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidParameterException'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '409':
+          description: Resource in use
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceInUseException'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalFailureException'
+
+components:
+  schemas:
+    RequestCertificateRequest:
+      type: object
+      required:
+        - DomainName
+      properties:
+        DomainName:
+          type: string
+          description: The fully qualified domain name for the certificate.
+        SubjectAlternativeNames:
+          type: array
+          items:
+            type: string
+          description: Additional FQDNs to be included in the certificate.
+        ValidationMethod:
+          type: string
+          enum:
+            - EMAIL
+            - DNS
+          description: The method to use for validation.
+        IdempotencyToken:
+          type: string
+          description: Token to prevent duplicate requests.
+
+    RequestCertificateResponse:
+      type: object
+      properties:
+        CertificateArn:
+          type: string
+          description: The ARN of the issued certificate.
+
+    ListCertificatesResponse:
+      type: object
+      properties:
+        CertificateSummaryList:
+          type: array
+          items:
+            type: object
+            properties:
+              CertificateArn:
+                type: string
+              DomainName:
+                type: string
+              Status:
+                type: string
+              Type:
+                type: string
+        NextToken:
+          type: string
+
+    DescribeCertificateResponse:
+      type: object
+      properties:
+        Certificate:
+          type: object
+          properties:
+            CertificateArn:
+              type: string
+            DomainName:
+              type: string
+            SubjectAlternativeNames:
+              type: array
+              items:
+                type: string
+            Status:
+              type: string
+            Type:
+              type: string
+            Issuer:
+              type: string
+            CreatedAt:
+              type: string
+              format: date-time
+            IssuedAt:
+              type: string
+              format: date-time
+            NotBefore:
+              type: string
+              format: date-time
+            NotAfter:
+              type: string
+              format: date-time
+            Serial:
+              type: string
+            KeyAlgorithm:
+              type: string
+
+    InvalidParameterException:
+      type: object
+      properties:
+        message:
+          type: string
+
+    ResourceNotFoundException:
+      type: object
+      properties:
+        message:
+          type: string
+
+    ResourceInUseException:
+      type: object
+      properties:
+        message:
+          type: string
+
+    TooManyRequestsException:
+      type: object
+      properties:
+        message:
+          type: string
+
+    InternalFailureException:
+      type: object
+      properties:
+        message:
+          type: string
