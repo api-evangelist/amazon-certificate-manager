@@ -1,9 +1,17 @@
+aid: amazon-certificate-manager
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/amazon-certificate-manager/refs/heads/main/apis.yml
 name: Amazon Certificate Manager API
-description: AWS Certificate Manager (ACM) handles the complexity of creating, storing, and renewing public and private SSL/TLS X.509 certificates and keys that protect your AWS websites and applications, enabling you to manage certificate lifecycles centrally.
-image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
-url: https://aws.amazon.com/certificate-manager/
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+specificationVersion: '0.19'
+description: >-
+  AWS Certificate Manager (ACM) handles the complexity of creating, storing,
+  and renewing public and private SSL/TLS X.509 certificates and keys that
+  protect your AWS websites and applications, enabling you to manage
+  certificate lifecycles centrally.
 created: '2024-01-15'
-modified: '2026-03-13'
+modified: '2026-03-16'
 apis:
 - name: Amazon Certificate Manager API
   description: >-
