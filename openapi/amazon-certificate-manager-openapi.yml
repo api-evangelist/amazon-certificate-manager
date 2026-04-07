@@ -23,8 +23,6 @@ servers:
 tags:
   - name: Certificates
     description: Operations for requesting, describing, and managing SSL/TLS certificates
-  - name: Tags
-    description: Operations for managing certificate tags
 paths:
   /:
     post:
