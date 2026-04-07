@@ -29,7 +29,7 @@ paths:
   /:
     post:
       operationId: RequestCertificate
-      summary: Request a certificate
+      summary: Amazon Certificate Manager Request a certificate
       description: >-
         Requests an ACM certificate for use with other AWS services. You can
         request a public certificate validated via DNS or email, or a private
@@ -71,7 +71,7 @@ paths:
   /certificates:
     get:
       operationId: ListCertificates
-      summary: List certificates
+      summary: Amazon Certificate Manager List certificates
       description: >-
         Retrieves a list of certificate ARNs and domain names. You can filter
         the list by certificate status.
@@ -128,7 +128,7 @@ paths:
   /certificates/{certificateArn}:
     get:
       operationId: DescribeCertificate
-      summary: Describe a certificate
+      summary: Amazon Certificate Manager Describe a certificate
       description: >-
         Returns detailed metadata about the specified ACM certificate,
         including domain name, status, and validation information.
@@ -168,7 +168,7 @@ paths:
                 $ref: '#/components/schemas/InternalFailureException'
     delete:
       operationId: DeleteCertificate
-      summary: Delete a certificate
+      summary: Amazon Certificate Manager Delete a certificate
       description: >-
         Deletes a certificate and its associated private key. You cannot delete
         a certificate that is in use by another AWS service.
