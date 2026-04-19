@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-certificate-manager/refs/heads/main/json-structure/certificate-manager-list-certificates-response-structure.json",
+  "name": "ListCertificatesResponse",
+  "description": "ListCertificatesResponse schema from Amazon Certificate Manager API",
+  "type": "object",
+  "properties": {
+    "CertificateSummaryList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "CertificateArn": {
+            "type": "string"
+          },
+          "DomainName": {
+            "type": "string"
+          },
+          "Status": {
+            "type": "string"
+          },
+          "Type": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "NextToken": {
+      "type": "string"
+    }
+  }
+}

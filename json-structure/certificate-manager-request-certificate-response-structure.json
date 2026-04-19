@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-certificate-manager/refs/heads/main/json-structure/certificate-manager-request-certificate-response-structure.json",
+  "name": "RequestCertificateResponse",
+  "description": "RequestCertificateResponse schema from Amazon Certificate Manager API",
+  "type": "object",
+  "properties": {
+    "CertificateArn": {
+      "type": "string",
+      "description": "The ARN of the issued certificate."
+    }
+  }
+}

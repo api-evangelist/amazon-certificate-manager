@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-certificate-manager/refs/heads/main/json-schema/certificate-manager-describe-certificate-response-schema.json",
+  "title": "DescribeCertificateResponse",
+  "description": "DescribeCertificateResponse schema from Amazon Certificate Manager API",
+  "type": "object",
+  "properties": {
+    "Certificate": {
+      "type": "object",
+      "properties": {
+        "CertificateArn": {
+          "type": "string"
+        },
+        "DomainName": {
+          "type": "string"
+        },
+        "SubjectAlternativeNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Type": {
+          "type": "string"
+        },
+        "Issuer": {
+          "type": "string"
+        },
+        "CreatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "IssuedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "NotBefore": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "NotAfter": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Serial": {
+          "type": "string"
+        },
+        "KeyAlgorithm": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon Certificate Manager Certificate Lifecycle Management"
+  description: "Unified workflow for managing SSL/TLS certificate lifecycles on AWS, enabling DevOps engineers and security teams to provision, inspect, and retire certificates for websites and internal services."
+  tags:
+    - Amazon Web Services
+    - Certificates
+    - SSL
+    - TLS
+    - Security
+    - DevOps
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+      AWS_REGION: AWS_REGION
+
+capability:
+  consumes:
+    - import: acm
+      location: ./shared/certificate-manager.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: certificate-lifecycle-api
+      description: "Unified REST API for SSL/TLS certificate lifecycle management on AWS."
+      resources:
+        - path: /v1/certificates
+          name: certificates
+          description: "Manage the full lifecycle of ACM SSL/TLS certificates"
+          operations:
+            - method: GET
+              name: list-certificates
+              description: "List all ACM certificates with optional status filtering"
+              call: "acm.list-certificates"
+              with:
+                maxItems: "rest.max_items"
+                nextToken: "rest.next_token"
+                certificateStatuses: "rest.statuses"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: request-certificate
+              description: "Request a new SSL/TLS certificate with DNS or email validation"
+              call: "acm.request-certificate"
+              with:
+                DomainName: "rest.domain_name"
+                ValidationMethod: "rest.validation_method"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/certificates/{certificateArn}
+          name: certificate
+          description: "Inspect or delete a specific certificate"
+          operations:
+            - method: GET
+              name: describe-certificate
+              description: "Get full details of a specific ACM certificate"
+              call: "acm.describe-certificate"
+              with:
+                certificateArn: "rest.certificateArn"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: DELETE
+              name: delete-certificate
+              description: "Delete an ACM certificate"
+              call: "acm.delete-certificate"
+              with:
+                certificateArn: "rest.certificateArn"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: certificate-lifecycle-mcp
+      transport: http
+      description: "MCP server for AI-assisted SSL/TLS certificate lifecycle management on AWS."
+      tools:
+        - name: list-certificates
+          description: "List all ACM SSL/TLS certificates, optionally filtered by status"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "acm.list-certificates"
+          with:
+            maxItems: "tools.max_items"
+            nextToken: "tools.next_token"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: describe-certificate
+          description: "Get detailed metadata for a specific ACM certificate by ARN, including domain, status, expiry, and issuer"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "acm.describe-certificate"
+          with:
+            certificateArn: "tools.certificate_arn"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: request-certificate
+          description: "Request a new ACM SSL/TLS certificate for a domain using DNS or email validation"
+          hints:
+            readOnly: false
+            idempotent: false
+          call: "acm.request-certificate"
+          with:
+            DomainName: "tools.domain_name"
+            ValidationMethod: "tools.validation_method"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: delete-certificate
+          description: "Delete an ACM certificate by ARN. Cannot delete certificates in use by AWS services."
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: "acm.delete-certificate"
+          with:
+            certificateArn: "tools.certificate_arn"
+          outputParameters:
+            - type: object
+              mapping: "$."

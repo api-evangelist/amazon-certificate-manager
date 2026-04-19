@@ -14,26 +14,26 @@ externalDocs:
   description: Amazon Certificate Manager API Reference
   url: https://docs.aws.amazon.com/acm/latest/APIReference/
 servers:
-  - url: https://acm.{region}.amazonaws.com
-    description: Amazon Certificate Manager Regional Endpoint
-    variables:
-      region:
-        default: us-east-1
-        description: AWS Region
+- url: https://acm.{region}.amazonaws.com
+  description: Amazon Certificate Manager Regional Endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: AWS Region
 tags:
-  - name: Certificates
-    description: Operations for requesting, describing, and managing SSL/TLS certificates
+- name: Certificates
+  description: Operations for requesting, describing, and managing SSL/TLS certificates
 paths:
   /:
     post:
       operationId: RequestCertificate
-      summary: Amazon Certificate Manager Request a certificate
+      summary: Amazon Certificate Manager Request a Certificate
       description: >-
         Requests an ACM certificate for use with other AWS services. You can
         request a public certificate validated via DNS or email, or a private
         certificate issued by a private certificate authority (CA).
       tags:
-        - Certificates
+      - Certificates
       requestBody:
         required: true
         content:
@@ -47,18 +47,36 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RequestCertificateResponse'
+              examples:
+                RequestCertificate200Example:
+                  summary: Default RequestCertificate 200 response
+                  x-microcks-default: true
+                  value:
+                    CertificateArn: arn:aws:acm:us-east-1:123456789012:certificate/abc12345-1234-1234-1234-abc123456789
         '400':
           description: Bad request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidParameterException'
+              examples:
+                RequestCertificate400Example:
+                  summary: Default RequestCertificate 400 response
+                  x-microcks-default: true
+                  value:
+                    message: example-value
         '429':
           description: Too many requests
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/TooManyRequestsException'
+              examples:
+                RequestCertificate429Example:
+                  summary: Default RequestCertificate 429 response
+                  x-microcks-default: true
+                  value:
+                    message: example-value
         '500':
           description: Internal server error
           content:
@@ -66,43 +84,52 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalFailureException'
 
+              examples:
+                RequestCertificate500Example:
+                  summary: Default RequestCertificate 500 response
+                  x-microcks-default: true
+                  value:
+                    message: example-value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /certificates:
     get:
       operationId: ListCertificates
-      summary: Amazon Certificate Manager List certificates
+      summary: Amazon Certificate Manager List Certificates
       description: >-
         Retrieves a list of certificate ARNs and domain names. You can filter
         the list by certificate status.
       tags:
-        - Certificates
+      - Certificates
       parameters:
-        - name: maxItems
-          in: query
-          description: Maximum number of certificates to return.
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 1000
-        - name: nextToken
-          in: query
-          description: Token for pagination.
-          schema:
+      - name: maxItems
+        in: query
+        description: Maximum number of certificates to return.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+      - name: nextToken
+        in: query
+        description: Token for pagination.
+        schema:
+          type: string
+      - name: certificateStatuses
+        in: query
+        description: Filter by certificate status.
+        schema:
+          type: array
+          items:
             type: string
-        - name: certificateStatuses
-          in: query
-          description: Filter by certificate status.
-          schema:
-            type: array
-            items:
-              type: string
-              enum:
-                - PENDING_VALIDATION
-                - ISSUED
-                - INACTIVE
-                - REVOKED
-                - EXPIRED
-                - VALIDATION_TIMED_OUT
-                - FAILED
+            enum:
+            - PENDING_VALIDATION
+            - ISSUED
+            - INACTIVE
+            - REVOKED
+            - EXPIRED
+            - VALIDATION_TIMED_OUT
+            - FAILED
       responses:
         '200':
           description: Successful response
@@ -110,12 +137,29 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListCertificatesResponse'
+              examples:
+                ListCertificates200Example:
+                  summary: Default ListCertificates 200 response
+                  x-microcks-default: true
+                  value:
+                    CertificateSummaryList:
+                    - CertificateArn: arn:aws:acm:us-east-1:123456789012:certificate/abc12345-1234-1234-1234-abc123456789
+                      DomainName: example.com
+                      Status: ISSUED
+                      Type: example-value
+                    NextToken: a1b2c3d4e5f6
         '400':
           description: Bad request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidParameterException'
+              examples:
+                ListCertificates400Example:
+                  summary: Default ListCertificates 400 response
+                  x-microcks-default: true
+                  value:
+                    message: example-value
         '500':
           description: Internal server error
           content:
@@ -123,22 +167,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalFailureException'
 
+              examples:
+                ListCertificates500Example:
+                  summary: Default ListCertificates 500 response
+                  x-microcks-default: true
+                  value:
+                    message: example-value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /certificates/{certificateArn}:
     get:
       operationId: DescribeCertificate
-      summary: Amazon Certificate Manager Describe a certificate
+      summary: Amazon Certificate Manager Describe a Certificate
       description: >-
         Returns detailed metadata about the specified ACM certificate,
         including domain name, status, and validation information.
       tags:
-        - Certificates
+      - Certificates
       parameters:
-        - name: certificateArn
-          in: path
-          required: true
-          description: The ARN of the ACM certificate.
-          schema:
-            type: string
+      - name: certificateArn
+        in: path
+        required: true
+        description: The ARN of the ACM certificate.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -146,39 +199,79 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DescribeCertificateResponse'
+              examples:
+                DescribeCertificate200Example:
+                  summary: Default DescribeCertificate 200 response
+                  x-microcks-default: true
+                  value:
+                    Certificate:
+                      CertificateArn: arn:aws:acm:us-east-1:123456789012:certificate/abc12345-1234-1234-1234-abc123456789
+                      DomainName: example.com
+                      SubjectAlternativeNames:
+                      - example-value
+                      Status: ISSUED
+                      Type: example-value
+                      Issuer: example-value
+                      CreatedAt: example-value
+                      IssuedAt: example-value
+                      NotBefore: example-value
+                      NotAfter: example-value
+                      Serial: example-value
+                      KeyAlgorithm: example-value
         '400':
           description: Bad request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidParameterException'
+              examples:
+                DescribeCertificate400Example:
+                  summary: Default DescribeCertificate 400 response
+                  x-microcks-default: true
+                  value:
+                    message: example-value
         '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResourceNotFoundException'
+              examples:
+                DescribeCertificate404Example:
+                  summary: Default DescribeCertificate 404 response
+                  x-microcks-default: true
+                  value:
+                    message: example-value
         '500':
           description: Internal server error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalFailureException'
+              examples:
+                DescribeCertificate500Example:
+                  summary: Default DescribeCertificate 500 response
+                  x-microcks-default: true
+                  value:
+                    message: example-value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: DeleteCertificate
-      summary: Amazon Certificate Manager Delete a certificate
+      summary: Amazon Certificate Manager Delete a Certificate
       description: >-
         Deletes a certificate and its associated private key. You cannot delete
         a certificate that is in use by another AWS service.
       tags:
-        - Certificates
+      - Certificates
       parameters:
-        - name: certificateArn
-          in: path
-          required: true
-          description: The ARN of the ACM certificate to delete.
-          schema:
-            type: string
+      - name: certificateArn
+        in: path
+        required: true
+        description: The ARN of the ACM certificate to delete.
+        schema:
+          type: string
       responses:
         '200':
           description: Certificate deleted
@@ -188,18 +281,36 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidParameterException'
+              examples:
+                DeleteCertificate400Example:
+                  summary: Default DeleteCertificate 400 response
+                  x-microcks-default: true
+                  value:
+                    message: example-value
         '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResourceNotFoundException'
+              examples:
+                DeleteCertificate404Example:
+                  summary: Default DeleteCertificate 404 response
+                  x-microcks-default: true
+                  value:
+                    message: example-value
         '409':
           description: Resource in use
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResourceInUseException'
+              examples:
+                DeleteCertificate409Example:
+                  summary: Default DeleteCertificate 409 response
+                  x-microcks-default: true
+                  value:
+                    message: example-value
         '500':
           description: Internal server error
           content:
@@ -207,12 +318,21 @@ paths:
               schema:
                 $ref: '#/components/schemas/InternalFailureException'
 
+              examples:
+                DeleteCertificate500Example:
+                  summary: Default DeleteCertificate 500 response
+                  x-microcks-default: true
+                  value:
+                    message: example-value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   schemas:
     RequestCertificateRequest:
       type: object
       required:
-        - DomainName
+      - DomainName
       properties:
         DomainName:
           type: string
@@ -225,8 +345,8 @@ components:
         ValidationMethod:
           type: string
           enum:
-            - EMAIL
-            - DNS
+          - EMAIL
+          - DNS
           description: The method to use for validation.
         IdempotencyToken:
           type: string

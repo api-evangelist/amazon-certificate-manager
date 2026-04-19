@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-certificate-manager/refs/heads/main/json-schema/certificate-manager-request-certificate-request-schema.json",
+  "title": "RequestCertificateRequest",
+  "description": "RequestCertificateRequest schema from Amazon Certificate Manager API",
+  "type": "object",
+  "properties": {
+    "DomainName": {
+      "type": "string",
+      "description": "The fully qualified domain name for the certificate."
+    },
+    "SubjectAlternativeNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Additional FQDNs to be included in the certificate."
+    },
+    "ValidationMethod": {
+      "type": "string",
+      "enum": [
+        "EMAIL",
+        "DNS"
+      ],
+      "description": "The method to use for validation."
+    },
+    "IdempotencyToken": {
+      "type": "string",
+      "description": "Token to prevent duplicate requests."
+    }
+  },
+  "required": [
+    "DomainName"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "CertificateSummaryList": [
+    {
+      "CertificateArn": "arn:aws:acm:us-east-1:123456789012:certificate/abc12345-1234-1234-1234-abc123456789",
+      "DomainName": "example.com",
+      "Status": "ISSUED",
+      "Type": "example-value"
+    }
+  ],
+  "NextToken": "a1b2c3d4e5f6"
+}

@@ -1,0 +1,173 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Amazon Certificate Manager"
+  description: "Vocabulary and taxonomy for AWS Certificate Manager APIs covering SSL/TLS certificate lifecycle management operations, schemas, and capability workflows."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: Amazon Certificate Manager API
+      namespace: acm
+      version: "2015-12-08"
+      baseUrl: https://acm.us-east-1.amazonaws.com
+      status: active
+
+  resources:
+    - name: certificates
+      description: "SSL/TLS X.509 certificate resources managed by ACM"
+      api: acm
+      actions:
+        - list
+        - request
+        - describe
+        - delete
+
+  actions:
+    - name: list
+      description: "Retrieve a paginated list of resources"
+      httpMethod: GET
+      pattern: read
+    - name: request
+      description: "Create or provision a new resource"
+      httpMethod: POST
+      pattern: write
+    - name: describe
+      description: "Retrieve detailed metadata about a specific resource"
+      httpMethod: GET
+      pattern: read
+    - name: delete
+      description: "Permanently remove a resource"
+      httpMethod: DELETE
+      pattern: destructive
+
+  schemas:
+    core:
+      - name: RequestCertificateRequest
+        description: "Request body for provisioning a new ACM certificate"
+        keyProperties:
+          - DomainName
+          - SubjectAlternativeNames
+          - ValidationMethod
+          - IdempotencyToken
+      - name: RequestCertificateResponse
+        description: "Response containing the ARN of the newly provisioned certificate"
+        keyProperties:
+          - CertificateArn
+      - name: ListCertificatesResponse
+        description: "Paginated list of certificate summaries"
+        keyProperties:
+          - CertificateSummaryList
+          - NextToken
+      - name: DescribeCertificateResponse
+        description: "Detailed certificate metadata response"
+        keyProperties:
+          - Certificate
+
+  parameters:
+    pagination:
+      - name: maxItems
+        description: "Maximum number of items to return per page"
+        type: integer
+      - name: nextToken
+        description: "Pagination token for retrieving the next page"
+        type: string
+    filters:
+      - name: certificateStatuses
+        description: "Filter certificates by status"
+        type: array
+    identifiers:
+      - name: certificateArn
+        description: "Amazon Resource Name uniquely identifying a certificate"
+        type: string
+
+  enums:
+    validationMethods:
+      - EMAIL
+      - DNS
+    certificateStatuses:
+      - PENDING_VALIDATION
+      - ISSUED
+      - INACTIVE
+      - REVOKED
+      - EXPIRED
+      - VALIDATION_TIMED_OUT
+      - FAILED
+
+  authentication:
+    schemes:
+      - type: AWS Signature Version 4
+        description: "AWS standard request signing using access key and secret"
+        apis:
+          - acm
+
+capability:
+  workflows:
+    - name: Certificate Lifecycle Management
+      file: capabilities/certificate-lifecycle-management.yaml
+      description: "End-to-end SSL/TLS certificate provisioning, inspection, and retirement workflow"
+      apisConsumed:
+        - acm
+      toolCount: 4
+      personas:
+        - DevOps Engineer
+        - Security Engineer
+
+  personas:
+    - id: devops-engineer
+      name: DevOps Engineer
+      description: "Engineers managing infrastructure and certificate rotation for web services"
+      workflows:
+        - Certificate Lifecycle Management
+    - id: security-engineer
+      name: Security Engineer
+      description: "Security professionals overseeing certificate compliance and expiry monitoring"
+      workflows:
+        - Certificate Lifecycle Management
+
+  domains:
+    - name: Certificate Management
+      description: "SSL/TLS certificate provisioning, validation, and lifecycle operations"
+      resources:
+        - certificates
+      workflows:
+        - Certificate Lifecycle Management
+
+  namespaces:
+    - name: acm
+      type: consumed
+      baseUri: https://acm.us-east-1.amazonaws.com
+    - name: certificate-lifecycle-api
+      type: rest-exposed
+      port: 8080
+    - name: certificate-lifecycle-mcp
+      type: mcp-exposed
+      port: 9090
+
+  binds:
+    - name: AWS_ACCESS_KEY_ID
+      description: "AWS access key ID for ACM API authentication"
+      workflows:
+        - Certificate Lifecycle Management
+    - name: AWS_SECRET_ACCESS_KEY
+      description: "AWS secret access key for ACM API authentication"
+      workflows:
+        - Certificate Lifecycle Management
+    - name: AWS_REGION
+      description: "AWS region for ACM endpoint"
+      workflows:
+        - Certificate Lifecycle Management
+
+crossReference:
+  - resource: certificates
+    operations:
+      - ListCertificates
+      - RequestCertificate
+      - DescribeCertificate
+      - DeleteCertificate
+    workflows:
+      - Certificate Lifecycle Management
+    personas:
+      - DevOps Engineer
+      - Security Engineer

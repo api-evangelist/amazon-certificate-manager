@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-certificate-manager/refs/heads/main/json-schema/certificate-manager-list-certificates-response-schema.json",
+  "title": "ListCertificatesResponse",
+  "description": "ListCertificatesResponse schema from Amazon Certificate Manager API",
+  "type": "object",
+  "properties": {
+    "CertificateSummaryList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "CertificateArn": {
+            "type": "string"
+          },
+          "DomainName": {
+            "type": "string"
+          },
+          "Status": {
+            "type": "string"
+          },
+          "Type": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "NextToken": {
+      "type": "string"
+    }
+  }
+}
