@@ -1,0 +1,66 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  Public package registries (npm, PyPI, Maven Central, NuGet, pkg.go.dev,
+  RubyGems, Packagist, crates.io) — first-party AWS SDK client libraries for
+  AWS Certificate Manager (service id "acm").
+packages:
+- language: javascript
+  registry: npm
+  name: "@aws-sdk/client-acm"
+  url: https://www.npmjs.com/package/@aws-sdk/client-acm
+  install: npm install @aws-sdk/client-acm
+  official: true
+- language: python
+  registry: pypi
+  name: boto3
+  url: https://pypi.org/project/boto3/
+  install: pip install boto3
+  official: true
+  note: >-
+    AWS SDK for Python; ACM operations exposed via boto3.client('acm').
+    Low-level core is botocore (https://pypi.org/project/botocore/).
+- language: java
+  registry: maven
+  name: software.amazon.awssdk:acm
+  url: https://central.sonatype.com/artifact/software.amazon.awssdk/acm
+  install: >-
+    <dependency><groupId>software.amazon.awssdk</groupId><artifactId>acm</artifactId></dependency>
+  official: true
+- language: dotnet
+  registry: nuget
+  name: AWSSDK.CertificateManager
+  url: https://www.nuget.org/packages/AWSSDK.CertificateManager
+  install: dotnet add package AWSSDK.CertificateManager
+  official: true
+- language: go
+  registry: pkg.go.dev
+  name: github.com/aws/aws-sdk-go-v2/service/acm
+  url: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/acm
+  install: go get github.com/aws/aws-sdk-go-v2/service/acm
+  official: true
+- language: ruby
+  registry: rubygems
+  name: aws-sdk-acm
+  url: https://rubygems.org/gems/aws-sdk-acm
+  install: gem install aws-sdk-acm
+  official: true
+- language: php
+  registry: packagist
+  name: aws/aws-sdk-php
+  url: https://packagist.org/packages/aws/aws-sdk-php
+  install: composer require aws/aws-sdk-php
+  official: true
+  note: ACM available via the Aws\Acm namespace in the monolithic AWS SDK for PHP.
+- language: rust
+  registry: crates.io
+  name: aws-sdk-acm
+  url: https://crates.io/crates/aws-sdk-acm
+  install: cargo add aws-sdk-acm
+  official: true
+- language: cli
+  registry: aws-cli
+  name: aws acm
+  url: https://docs.aws.amazon.com/cli/latest/reference/acm/
+  install: aws acm help
+  official: true

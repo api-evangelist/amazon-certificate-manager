@@ -1,0 +1,26 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  Probed /.well-known/ discovery surface on the ACM regional API host and the
+  AWS corporate host on 2026-06-20.
+hosts:
+- host: https://acm.us-east-1.amazonaws.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  note: >-
+    ACM regional API endpoints authenticate with AWS Signature Version 4, not
+    OAuth/OIDC, and expose no /.well-known/ discovery documents.
+- host: https://aws.amazon.com
+  documents:
+  - path: /.well-known/security.txt          # RFC 9116
+    status: 200
+    file: amazon-certificate-manager-security.txt

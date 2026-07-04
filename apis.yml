@@ -11,7 +11,7 @@ description: >-
   protect your AWS websites and applications, enabling you to manage
   certificate lifecycles centrally.
 created: '2024-01-15'
-modified: '2026-04-19'
+modified: '2026-06-20'
 apis:
 - name: Amazon Certificate Manager API
   description: >-
@@ -71,6 +71,14 @@ apis:
     url: examples/certificate-manager-list-certificates-response-example.json
   - type: Example
     url: examples/certificate-manager-describe-certificate-response-example.json
+  - type: Packages
+    url: packages/amazon-certificate-manager-packages.yml
+  - type: MCPServer
+    url: mcp/amazon-certificate-manager-mcp.yml
+  - type: Overlay
+    url: overlays/amazon-certificate-manager-openapi-overlay.yaml
+  - type: ErrorCatalog
+    url: errors/amazon-certificate-manager-problem-types.yml
 common:
 - type: Portal
   url: https://aws.amazon.com/
@@ -112,6 +120,16 @@ common:
   url: rules/amazon-certificate-manager-spectral-rules.yml
 - type: Vocabulary
   url: vocabulary/amazon-certificate-manager-vocabulary.yaml
+- type: WellKnown
+  url: well-known/amazon-certificate-manager-well-known.yml
+- type: SecurityTxt
+  url: well-known/amazon-certificate-manager-security.txt
+- type: LLMsTxt
+  url: llms/amazon-certificate-manager-llms.txt
+- type: Conformance
+  url: conformance/amazon-certificate-manager-conformance.yml
+- type: Lifecycle
+  url: lifecycle/amazon-certificate-manager-lifecycle.yml
 - type: NaftikoCapability
   url: capabilities/certificate-lifecycle-management.yaml
 - type: Features

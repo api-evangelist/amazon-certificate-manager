@@ -1,0 +1,53 @@
+generated: '2026-06-20'
+method: derived
+format: aws-json
+source: >-
+  openapi/amazon-certificate-manager-openapi.yml (4xx/5xx responses); titles and
+  remediation enriched from
+  https://docs.aws.amazon.com/acm/latest/APIReference/CommonErrors.md
+note: >-
+  ACM returns AWS JSON error shapes ({"message": "..."}) with a modeled
+  exception type in the response, served as application/json (not RFC 9457
+  application/problem+json).
+problems:
+- status: 400
+  type: InvalidParameterException
+  title: Invalid parameter
+  remediation: >-
+    Correct the malformed request parameter (for example an invalid domain name
+    or certificate ARN) and retry.
+  source_operations:
+  - openapi/amazon-certificate-manager-openapi.yml#RequestCertificate
+  - openapi/amazon-certificate-manager-openapi.yml#ListCertificates
+  - openapi/amazon-certificate-manager-openapi.yml#DescribeCertificate
+  - openapi/amazon-certificate-manager-openapi.yml#DeleteCertificate
+- status: 404
+  type: ResourceNotFoundException
+  title: Resource not found
+  remediation: The specified certificate ARN does not exist. Verify the ARN and region.
+  source_operations:
+  - openapi/amazon-certificate-manager-openapi.yml#DescribeCertificate
+  - openapi/amazon-certificate-manager-openapi.yml#DeleteCertificate
+- status: 409
+  type: ResourceInUseException
+  title: Resource in use
+  remediation: >-
+    The certificate is currently associated with another AWS service. Detach it
+    from the in-use resource before deleting.
+  source_operations:
+  - openapi/amazon-certificate-manager-openapi.yml#DeleteCertificate
+- status: 429
+  type: TooManyRequestsException
+  title: Too many requests
+  remediation: The request was throttled. Back off and retry with exponential backoff.
+  source_operations:
+  - openapi/amazon-certificate-manager-openapi.yml#RequestCertificate
+- status: 500
+  type: InternalFailureException
+  title: Internal server error
+  remediation: An unexpected AWS-side error occurred. Retry the request; if it persists, contact AWS Support.
+  source_operations:
+  - openapi/amazon-certificate-manager-openapi.yml#RequestCertificate
+  - openapi/amazon-certificate-manager-openapi.yml#ListCertificates
+  - openapi/amazon-certificate-manager-openapi.yml#DescribeCertificate
+  - openapi/amazon-certificate-manager-openapi.yml#DeleteCertificate

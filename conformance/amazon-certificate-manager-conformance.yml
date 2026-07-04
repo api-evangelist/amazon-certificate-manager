@@ -1,0 +1,48 @@
+generated: '2026-06-20'
+method: derived
+source: >-
+  openapi/amazon-certificate-manager-openapi.yml plus AWS docs
+  (https://docs.aws.amazon.com/acm/latest/APIReference/CommonParameters.md,
+  https://aws.amazon.com/compliance/).
+standards:
+- id: oauth2
+  conforms: false
+  evidence: >-
+    ACM authenticates with AWS Signature Version 4 (SigV4), not OAuth2. No
+    oauth2 security scheme in the OpenAPI.
+- id: oidc
+  conforms: false
+  evidence: No OpenID Connect discovery document; no /.well-known/openid-configuration (404).
+- id: aws-sigv4
+  conforms: true
+  evidence: >-
+    ACM API requests are signed with AWS Signature Version 4 per AWS Common
+    Parameters (X-Amz-Date, Authorization, X-Amz-Security-Token).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors return AWS JSON exception shapes ({"message": ...}) with
+    application/json, not application/problem+json.
+- id: idempotency
+  conforms: true
+  evidence: RequestCertificate accepts an IdempotencyToken field to deduplicate requests.
+- id: pagination
+  conforms: true
+  evidence: >-
+    ListCertificates uses token-based pagination (nextToken request param,
+    NextToken response field, maxItems page size).
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: https://aws.amazon.com/.well-known/security.txt returns 200 (RFC 9116).
+- id: fhir-r4
+  conforms: false
+- id: fapi
+  conforms: false
+- id: scim2
+  conforms: false
+- id: odata
+  conforms: false
+- id: json-api
+  conforms: false
+- id: psd2
+  conforms: false

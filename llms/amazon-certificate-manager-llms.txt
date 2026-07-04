@@ -1,0 +1,101 @@
+# AWS Certificate Manager API Reference
+
+> You can use AWS Certificate Manager (ACM) to manage SSL/TLS certificates for your AWS-based websites and applications. For more information about using ACM, see the AWS Certificate Manager User Guide.
+
+- [Welcome](https://docs.aws.amazon.com/acm/latest/APIReference/Welcome.md)
+- [Common Parameters](https://docs.aws.amazon.com/acm/latest/APIReference/CommonParameters.md)
+- [Common Error Types](https://docs.aws.amazon.com/acm/latest/APIReference/CommonErrors.md)
+
+## [Actions](https://docs.aws.amazon.com/acm/latest/APIReference/API_Operations.md)
+
+- [AddTagsToCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_AddTagsToCertificate.md): Adds one or more tags to an ACM certificate.
+- [CreateAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_CreateAcmeDomainValidation.md): Creates a domain validation for an ACME endpoint.
+- [CreateAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_CreateAcmeEndpoint.md): Creates an ACME endpoint, which is a managed ACME server with a unique endpoint URL.
+- [CreateAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_CreateAcmeExternalAccountBinding.md): Creates an external account binding (EAB) for an ACME endpoint.
+- [DeleteAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteAcmeDomainValidation.md): Deletes a domain validation.
+- [DeleteAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteAcmeEndpoint.md): Deletes an ACME endpoint.
+- [DeleteAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteAcmeExternalAccountBinding.md): Deletes an external account binding.
+- [DeleteCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteCertificate.md): Deletes a certificate and its associated private key.
+- [DescribeAcmeAccount](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeAccount.md): Returns detailed metadata about the specified ACME account, including its status, public key thumbprint, and associated external account binding.
+- [DescribeAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeDomainValidation.md): Returns detailed metadata about the specified domain validation, including its status, domain scope, and DNS resource records required for validation.
+- [DescribeAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeEndpoint.md): Returns detailed metadata about the specified ACME endpoint, including its status, URL, authorization behavior, and certificate authority configuration.
+- [DescribeAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeExternalAccountBinding.md): Returns detailed metadata about the specified external account binding, including the associated IAM role, expiration time, and usage history.
+- [DescribeCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.md): Returns detailed metadata about the specified ACM certificate.
+- [ExportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExportCertificate.md): Exports a private certificate issued by a private certificate authority (CA) or a public certificate for use anywhere.
+- [GetAccountConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_GetAccountConfiguration.md): Returns the account configuration options associated with an AWS account.
+- [GetAcmeExternalAccountBindingCredentials](https://docs.aws.amazon.com/acm/latest/APIReference/API_GetAcmeExternalAccountBindingCredentials.md): Retrieves the key ID and MAC key credentials for an external account binding.
+- [GetCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_GetCertificate.md): Retrieves a certificate and its certificate chain.
+- [ImportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ImportCertificate.md): Imports a certificate into AWS Certificate Manager (ACM) to use with services that are integrated with ACM.
+- [ListAcmeAccounts](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeAccounts.md): Retrieves a list of ACME accounts registered with the specified ACME endpoint.
+- [ListAcmeDomainValidations](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeDomainValidations.md): Retrieves a list of domain validations for the specified ACME endpoint.
+- [ListAcmeEndpoints](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeEndpoints.md): Retrieves a list of ACME endpoints in your account.
+- [ListAcmeExternalAccountBindings](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeExternalAccountBindings.md): Retrieves a list of external account bindings for the specified ACME endpoint.
+- [ListCertificates](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListCertificates.md): Retrieves a list of certificate ARNs and domain names.
+- [ListTagsForCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListTagsForCertificate.md): Lists the tags that have been applied to the ACM certificate.
+- [ListTagsForResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListTagsForResource.md): Lists the tags associated with an ACM resource.
+- [PutAccountConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_PutAccountConfiguration.md): Adds or modifies account-level configurations in ACM.
+- [RemoveTagsFromCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RemoveTagsFromCertificate.md): Remove one or more tags from an ACM certificate.
+- [RenewCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RenewCertificate.md): Renews an eligible ACM certificate.
+- [RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.md): Requests an ACM certificate for use with other AWS services.
+- [ResendValidationEmail](https://docs.aws.amazon.com/acm/latest/APIReference/API_ResendValidationEmail.md): Resends the email that requests domain ownership validation.
+- [RevokeAcmeAccount](https://docs.aws.amazon.com/acm/latest/APIReference/API_RevokeAcmeAccount.md): Revokes an ACME account, preventing it from requesting or revoking certificates.
+- [RevokeAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_RevokeAcmeExternalAccountBinding.md): Revokes an external account binding, preventing new ACME accounts from being registered using this binding.
+- [RevokeCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RevokeCertificate.md): Revokes a public ACM certificate.
+- [SearchCertificates](https://docs.aws.amazon.com/acm/latest/APIReference/API_SearchCertificates.md): Retrieves a list of certificates matching search criteria.
+- [TagResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_TagResource.md): Adds one or more tags to an ACM resource.
+- [UntagResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_UntagResource.md): Removes one or more tags from an ACM resource.
+- [UpdateAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_UpdateAcmeDomainValidation.md): Updates the prevalidation configuration of an existing domain validation.
+- [UpdateAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_UpdateAcmeEndpoint.md): Updates the configuration of an existing ACME endpoint.
+- [UpdateCertificateOptions](https://docs.aws.amazon.com/acm/latest/APIReference/API_UpdateCertificateOptions.md): Updates a certificate.
+
+
+## [Data Types](https://docs.aws.amazon.com/acm/latest/APIReference/API_Types.md)
+
+- [AcmCertificateMetadata](https://docs.aws.amazon.com/acm/latest/APIReference/API_AcmCertificateMetadata.md): Contains ACM-specific metadata about a certificate.
+- [AcmCertificateMetadataFilter](https://docs.aws.amazon.com/acm/latest/APIReference/API_AcmCertificateMetadataFilter.md): Filters certificates by ACM metadata.
+- [AcmeAccount](https://docs.aws.amazon.com/acm/latest/APIReference/API_AcmeAccount.md): Contains detailed information about an ACME account.
+- [AcmeAccountSummary](https://docs.aws.amazon.com/acm/latest/APIReference/API_AcmeAccountSummary.md): Contains summary information about an ACME account.
+- [AcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_AcmeDomainValidation.md): Contains detailed information about an ACME domain validation.
+- [AcmeDomainValidationSummary](https://docs.aws.amazon.com/acm/latest/APIReference/API_AcmeDomainValidationSummary.md): Contains summary information about an ACME domain validation.
+- [AcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_AcmeEndpoint.md): Contains detailed information about an ACME endpoint.
+- [AcmeEndpointSummary](https://docs.aws.amazon.com/acm/latest/APIReference/API_AcmeEndpointSummary.md): Contains summary information about an ACME endpoint.
+- [AcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_AcmeExternalAccountBinding.md): Contains detailed information about an ACME external account binding.
+- [AcmeExternalAccountBindingSummary](https://docs.aws.amazon.com/acm/latest/APIReference/API_AcmeExternalAccountBindingSummary.md): Contains summary information about an ACME external account binding.
+- [CertificateAuthority](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateAuthority.md): Defines the certificate authority to use for an ACME endpoint.
+- [CertificateDetail](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.md): Contains metadata about an ACM certificate.
+- [CertificateFilter](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateFilter.md): Defines a filter for searching certificates by ARN, X.509 attributes, or ACM metadata.
+- [CertificateFilterStatement](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateFilterStatement.md): A filter statement used to search for certificates.
+- [CertificateMetadata](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateMetadata.md): Contains metadata about a certificate.
+- [CertificateOptions](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateOptions.md): Structure that contains options for your certificate.
+- [CertificateSearchResult](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateSearchResult.md): Contains information about a certificate returned by the action.
+- [CertificateSummary](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateSummary.md): This structure is returned in the response object of action.
+- [CommonNameFilter](https://docs.aws.amazon.com/acm/latest/APIReference/API_CommonNameFilter.md): Filters certificates by common name.
+- [CustomAttribute](https://docs.aws.amazon.com/acm/latest/APIReference/API_CustomAttribute.md): Defines the X.500 relative distinguished name (RDN).
+- [DistinguishedName](https://docs.aws.amazon.com/acm/latest/APIReference/API_DistinguishedName.md): Contains X.500 distinguished name information.
+- [DnsNameFilter](https://docs.aws.amazon.com/acm/latest/APIReference/API_DnsNameFilter.md): Filters certificates by DNS name.
+- [DnsPrevalidationDetails](https://docs.aws.amazon.com/acm/latest/APIReference/API_DnsPrevalidationDetails.md): DNS prevalidation details including the resource record for validation.
+- [DnsPrevalidationOptions](https://docs.aws.amazon.com/acm/latest/APIReference/API_DnsPrevalidationOptions.md): DNS prevalidation options for domain validation.
+- [DomainScope](https://docs.aws.amazon.com/acm/latest/APIReference/API_DomainScope.md): Specifies the scope of domain validation.
+- [DomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_DomainValidation.md): Contains information about the validation of each domain name in the certificate.
+- [DomainValidationOption](https://docs.aws.amazon.com/acm/latest/APIReference/API_DomainValidationOption.md): Contains information about the domain names that you want ACM to use to send you emails that enable you to validate domain ownership.
+- [Expiration](https://docs.aws.amazon.com/acm/latest/APIReference/API_Expiration.md): Specifies an expiration configuration.
+- [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.md): Object containing expiration events options associated with an AWS account.
+- [ExtendedKeyUsage](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExtendedKeyUsage.md): The Extended Key Usage X.509 v3 extension defines one or more purposes for which the public key can be used.
+- [FailureDetails](https://docs.aws.amazon.com/acm/latest/APIReference/API_FailureDetails.md): Contains details about a failure.
+- [Filters](https://docs.aws.amazon.com/acm/latest/APIReference/API_Filters.md): This structure can be used in the action to filter the output of the certificate list.
+- [GeneralName](https://docs.aws.amazon.com/acm/latest/APIReference/API_GeneralName.md): Describes an ASN.1 X.400 GeneralName as defined in RFC 5280.
+- [HttpRedirect](https://docs.aws.amazon.com/acm/latest/APIReference/API_HttpRedirect.md): Contains information for HTTP-based domain validation of certificates requested through Amazon CloudFront and issued by ACM.
+- [KeyUsage](https://docs.aws.amazon.com/acm/latest/APIReference/API_KeyUsage.md): The Key Usage X.509 v3 extension defines the purpose of the public key contained in the certificate.
+- [OtherName](https://docs.aws.amazon.com/acm/latest/APIReference/API_OtherName.md): Defines a custom ASN.1 X.400 GeneralName using an object identifier (OID) and value.
+- [PrevalidationDetails](https://docs.aws.amazon.com/acm/latest/APIReference/API_PrevalidationDetails.md): Contains details about the prevalidation configuration.
+- [PrevalidationOptions](https://docs.aws.amazon.com/acm/latest/APIReference/API_PrevalidationOptions.md): Specifies prevalidation options for domain validation.
+- [PublicCertificateAuthority](https://docs.aws.amazon.com/acm/latest/APIReference/API_PublicCertificateAuthority.md): Configuration for a public certificate authority.
+- [RenewalSummary](https://docs.aws.amazon.com/acm/latest/APIReference/API_RenewalSummary.md): Contains information about the status of ACM's managed renewal for the certificate.
+- [ResourceRecord](https://docs.aws.amazon.com/acm/latest/APIReference/API_ResourceRecord.md): Contains a DNS record value that you can use to validate ownership or control of a domain.
+- [SubjectAlternativeNameFilter](https://docs.aws.amazon.com/acm/latest/APIReference/API_SubjectAlternativeNameFilter.md): Filters certificates by subject alternative name attributes.
+- [SubjectFilter](https://docs.aws.amazon.com/acm/latest/APIReference/API_SubjectFilter.md): Filters certificates by subject attributes.
+- [Tag](https://docs.aws.amazon.com/acm/latest/APIReference/API_Tag.md): A key-value pair that identifies or specifies metadata about an ACM resource.
+- [ThrottlingReason](https://docs.aws.amazon.com/acm/latest/APIReference/API_ThrottlingReason.md): A description of why a request was throttled.
+- [TimestampRange](https://docs.aws.amazon.com/acm/latest/APIReference/API_TimestampRange.md): Specifies a time range for filtering certificates.
+- [X509AttributeFilter](https://docs.aws.amazon.com/acm/latest/APIReference/API_X509AttributeFilter.md): Filters certificates by X.509 attributes.
+- [X509Attributes](https://docs.aws.amazon.com/acm/latest/APIReference/API_X509Attributes.md): Contains X.509 certificate attributes extracted from the certificate.

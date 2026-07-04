@@ -1,0 +1,28 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  AWS Certificate Manager docs, AWS API versioning conventions, and the AWS
+  Health status page.
+versioning:
+  scheme: api-version-date
+  current: '2015-12-08'
+  docs: https://docs.aws.amazon.com/acm/latest/APIReference/Welcome.html
+  note: >-
+    ACM pins its API to the dated service version 2015-12-08 (sent as the
+    Version parameter / SDK model date). New capabilities are added
+    backward-compatibly under the same version.
+deprecation:
+  policy_url: https://docs.aws.amazon.com/acm/latest/userguide/
+  sunset_header: false
+  note: >-
+    AWS communicates deprecations via service documentation, the AWS Health
+    Dashboard, and account notifications rather than RFC 8594 Sunset/Deprecation
+    HTTP headers.
+sla:
+  url: https://aws.amazon.com/certificate-manager/faqs/
+  note: >-
+    ACM public certificates are provided at no cost; ACM itself is not listed
+    with a standalone published SLA percentage. Certificates deployed to
+    integrated services inherit those services' SLAs.
+status_page: https://health.aws.amazon.com/health/status
+deprecated_operations: []
