@@ -80,6 +80,8 @@ apis:
   - type: ErrorCatalog
     url: errors/amazon-certificate-manager-problem-types.yml
 common:
+- type: AgenticAccess
+  url: agentic-access/amazon-certificate-manager-agentic-access.yml
 - type: TrustCenter
   url: security/amazon-certificate-manager-trust-center.yml
 - type: VulnerabilityDisclosure
