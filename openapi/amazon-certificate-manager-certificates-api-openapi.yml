@@ -1,18 +1,12 @@
 openapi: 3.1.0
 info:
-  title: Amazon Certificate Manager API
-  description: >-
-    AWS Certificate Manager (ACM) handles the complexity of creating, storing,
-    and renewing public and private SSL/TLS X.509 certificates and keys that
-    protect your AWS websites and applications.
+  title: Amazon Certificate Manager Certificates API
+  description: AWS Certificate Manager (ACM) handles the complexity of creating, storing, and renewing public and private SSL/TLS X.509 certificates and keys that protect your AWS websites and applications.
   version: '2015-12-08'
   contact:
     name: Amazon Web Services
     url: https://aws.amazon.com/contact-us/
   termsOfService: https://aws.amazon.com/service-terms/
-externalDocs:
-  description: Amazon Certificate Manager API Reference
-  url: https://docs.aws.amazon.com/acm/latest/APIReference/
 servers:
 - url: https://acm.{region}.amazonaws.com
   description: Amazon Certificate Manager Regional Endpoint
@@ -28,10 +22,7 @@ paths:
     post:
       operationId: RequestCertificate
       summary: Amazon Certificate Manager Request a Certificate
-      description: >-
-        Requests an ACM certificate for use with other AWS services. You can
-        request a public certificate validated via DNS or email, or a private
-        certificate issued by a private certificate authority (CA).
+      description: Requests an ACM certificate for use with other AWS services. You can request a public certificate validated via DNS or email, or a private certificate issued by a private certificate authority (CA).
       tags:
       - Certificates
       requestBody:
@@ -83,7 +74,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalFailureException'
-
               examples:
                 RequestCertificate500Example:
                   summary: Default RequestCertificate 500 response
@@ -97,9 +87,7 @@ paths:
     get:
       operationId: ListCertificates
       summary: Amazon Certificate Manager List Certificates
-      description: >-
-        Retrieves a list of certificate ARNs and domain names. You can filter
-        the list by certificate status.
+      description: Retrieves a list of certificate ARNs and domain names. You can filter the list by certificate status.
       tags:
       - Certificates
       parameters:
@@ -166,7 +154,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalFailureException'
-
               examples:
                 ListCertificates500Example:
                   summary: Default ListCertificates 500 response
@@ -180,9 +167,7 @@ paths:
     get:
       operationId: DescribeCertificate
       summary: Amazon Certificate Manager Describe a Certificate
-      description: >-
-        Returns detailed metadata about the specified ACM certificate,
-        including domain name, status, and validation information.
+      description: Returns detailed metadata about the specified ACM certificate, including domain name, status, and validation information.
       tags:
       - Certificates
       parameters:
@@ -260,9 +245,7 @@ paths:
     delete:
       operationId: DeleteCertificate
       summary: Amazon Certificate Manager Delete a Certificate
-      description: >-
-        Deletes a certificate and its associated private key. You cannot delete
-        a certificate that is in use by another AWS service.
+      description: Deletes a certificate and its associated private key. You cannot delete a certificate that is in use by another AWS service.
       tags:
       - Certificates
       parameters:
@@ -317,7 +300,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalFailureException'
-
               examples:
                 DeleteCertificate500Example:
                   summary: Default DeleteCertificate 500 response
@@ -329,6 +311,44 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    TooManyRequestsException:
+      type: object
+      properties:
+        message:
+          type: string
+    ResourceInUseException:
+      type: object
+      properties:
+        message:
+          type: string
+    ListCertificatesResponse:
+      type: object
+      properties:
+        CertificateSummaryList:
+          type: array
+          items:
+            type: object
+            properties:
+              CertificateArn:
+                type: string
+              DomainName:
+                type: string
+              Status:
+                type: string
+              Type:
+                type: string
+        NextToken:
+          type: string
+    InvalidParameterException:
+      type: object
+      properties:
+        message:
+          type: string
+    InternalFailureException:
+      type: object
+      properties:
+        message:
+          type: string
     RequestCertificateRequest:
       type: object
       required:
@@ -351,33 +371,12 @@ components:
         IdempotencyToken:
           type: string
           description: Token to prevent duplicate requests.
-
     RequestCertificateResponse:
       type: object
       properties:
         CertificateArn:
           type: string
           description: The ARN of the issued certificate.
-
-    ListCertificatesResponse:
-      type: object
-      properties:
-        CertificateSummaryList:
-          type: array
-          items:
-            type: object
-            properties:
-              CertificateArn:
-                type: string
-              DomainName:
-                type: string
-              Status:
-                type: string
-              Type:
-                type: string
-        NextToken:
-          type: string
-
     DescribeCertificateResponse:
       type: object
       properties:
@@ -414,33 +413,11 @@ components:
               type: string
             KeyAlgorithm:
               type: string
-
-    InvalidParameterException:
-      type: object
-      properties:
-        message:
-          type: string
-
     ResourceNotFoundException:
       type: object
       properties:
         message:
           type: string
-
-    ResourceInUseException:
-      type: object
-      properties:
-        message:
-          type: string
-
-    TooManyRequestsException:
-      type: object
-      properties:
-        message:
-          type: string
-
-    InternalFailureException:
-      type: object
-      properties:
-        message:
-          type: string
+externalDocs:
+  description: Amazon Certificate Manager API Reference
+  url: https://docs.aws.amazon.com/acm/latest/APIReference/
