@@ -3,7 +3,18 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-certificate-manager/refs/heads/main/apis.yml
 name: Amazon Certificate Manager
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-certificate-manager.png
 specificationVersion: '0.19'
 description: >-
   AWS Certificate Manager (ACM) handles the complexity of creating, storing,
@@ -13,30 +24,18 @@ description: >-
 created: '2024-01-15'
 modified: '2026-06-20'
 apis:
-- name: Amazon Certificate Manager API
-  description: >-
-    API for provisioning, managing, and deploying public and private SSL/TLS
-    certificates for use with AWS services and your internal connected
-    resources. Supports requesting certificates, describing certificate
-    details, listing certificates, importing third-party certificates,
-    and managing certificate tags.
-  image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+- aid: amazon-certificate-manager:amazon-certificate-manager-certificates-api
+  name: Amazon Certificate Manager Certificates API
+  description: Operations for requesting, describing, and managing SSL/TLS certificates
   humanURL: https://aws.amazon.com/certificate-manager/
   baseURL: https://acm.amazonaws.com
   tags:
-  - AWS
   - Certificates
-  - Encryption
-  - Security
-  - SSL
-  - TLS
   properties:
+  - type: OpenAPI
+    url: openapi/amazon-certificate-manager-certificates-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/acm/latest/APIReference/
-  - type: OpenAPI
-    url: openapi/amazon-certificate-manager-openapi.yml
-  - type: OpenAPI
-    url: https://api.apis.guru/v2/specs/amazonaws.com/acm/2015-12-08/openapi.yaml
   - type: JSONSchema
     url: json-schema/amazon-certificate-manager-certificate-schema.json
   - type: JSONLD
@@ -73,10 +72,6 @@ apis:
     url: examples/certificate-manager-describe-certificate-response-example.json
   - type: Packages
     url: packages/amazon-certificate-manager-packages.yml
-  - type: MCPServer
-    url: mcp/amazon-certificate-manager-mcp.yml
-  - type: Overlay
-    url: overlays/amazon-certificate-manager-openapi-overlay.yaml
   - type: ErrorCatalog
     url: errors/amazon-certificate-manager-problem-types.yml
 common:
