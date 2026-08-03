@@ -1,0 +1,14 @@
+{
+  "provider": "amazon-certificate-manager",
+  "sources": [
+    "amazon-certificate-manager-certificates-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-certificate-manager-certificates-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
