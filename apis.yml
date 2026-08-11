@@ -75,6 +75,10 @@ apis:
   - type: ErrorCatalog
     url: errors/amazon-certificate-manager-problem-types.yml
 common:
+- type: MCPServer
+  url: mcp/amazon-certificate-manager-mcp.yml
+- type: Overlay
+  url: overlays/amazon-certificate-manager-openapi-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/amazon-certificate-manager-agentic-access.yml
 - type: TrustCenter
