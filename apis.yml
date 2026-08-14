@@ -1,6 +1,5 @@
 aid: amazon-certificate-manager
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/amazon-certificate-manager/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/amazon-certificate-manager/refs/heads/main/apis.yml
 name: Amazon Certificate Manager
 type: Index
 accessModel:
@@ -17,170 +16,171 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-certificate-manager.png
 specificationVersion: '0.19'
 description: >-
-  AWS Certificate Manager (ACM) handles the complexity of creating, storing,
-  and renewing public and private SSL/TLS X.509 certificates and keys that
-  protect your AWS websites and applications, enabling you to manage
-  certificate lifecycles centrally.
+  AWS Certificate Manager (ACM) handles the complexity of creating, storing, and renewing public and private SSL/TLS
+  X.509 certificates and keys that protect your AWS websites and applications, enabling you to manage certificate
+  lifecycles centrally.
 created: '2024-01-15'
 modified: '2026-06-20'
 apis:
-- aid: amazon-certificate-manager:amazon-certificate-manager-certificates-api
-  name: Amazon Certificate Manager Certificates API
-  description: Operations for requesting, describing, and managing SSL/TLS certificates
-  humanURL: https://aws.amazon.com/certificate-manager/
-  baseURL: https://acm.amazonaws.com
-  tags:
-  - Certificates
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-certificate-manager-certificates-api-openapi.yml
+  - aid: amazon-certificate-manager:amazon-certificate-manager-certificates-api
+    name: Amazon Certificate Manager Certificates API
+    description: Operations for requesting, describing, and managing SSL/TLS certificates
+    humanURL: https://aws.amazon.com/certificate-manager/
+    baseURL: https://acm.amazonaws.com
+    tags:
+      - Certificates
+    properties:
+      - type: OpenAPI
+        url: openapi/amazon-certificate-manager-certificates-api-openapi.yml
+      - type: Documentation
+        url: https://docs.aws.amazon.com/acm/latest/APIReference/
+      - type: JSONSchema
+        url: json-schema/amazon-certificate-manager-certificate-schema.json
+      - type: JSONLD
+        url: json-ld/amazon-certificate-manager-context.jsonld
+      - type: Pricing
+        url: https://aws.amazon.com/certificate-manager/pricing/
+      - type: GettingStarted
+        url: https://aws.amazon.com/certificate-manager/getting-started/
+      - type: FAQ
+        url: https://aws.amazon.com/certificate-manager/faqs/
+      - type: Documentation
+        url: https://docs.aws.amazon.com/acm/latest/userguide/
+      - type: APIReference
+        url: https://docs.aws.amazon.com/acm/latest/APIReference/
+      - type: CLI
+        url: https://docs.aws.amazon.com/cli/latest/reference/acm/
+      - type: Security
+        url: https://docs.aws.amazon.com/acm/latest/userguide/security.html
+      - type: JSONSchema
+        url: json-schema/certificate-manager-request-certificate-request-schema.json
+      - type: JSONSchema
+        url: json-schema/certificate-manager-request-certificate-response-schema.json
+      - type: JSONSchema
+        url: json-schema/certificate-manager-list-certificates-response-schema.json
+      - type: JSONSchema
+        url: json-schema/certificate-manager-describe-certificate-response-schema.json
+      - type: Example
+        url: examples/certificate-manager-request-certificate-request-example.json
+      - type: Example
+        url: examples/certificate-manager-request-certificate-response-example.json
+      - type: Example
+        url: examples/certificate-manager-list-certificates-response-example.json
+      - type: Example
+        url: examples/certificate-manager-describe-certificate-response-example.json
+      - type: Packages
+        url: packages/amazon-certificate-manager-packages.yml
+      - type: ErrorCatalog
+        url: errors/amazon-certificate-manager-problem-types.yml
+common:
+  - type: MCPServer
+    url: mcp/amazon-certificate-manager-mcp.yml
+  - type: Overlay
+    url: overlays/amazon-certificate-manager-openapi-overlay.yaml
+  - type: AgenticAccess
+    url: agentic-access/amazon-certificate-manager-agentic-access.yml
+  - type: TrustCenter
+    url: security/amazon-certificate-manager-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-certificate-manager-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-certificate-manager-domain-security.yml
+  - type: Portal
+    url: https://aws.amazon.com/
+  - type: Website
+    url: https://aws.amazon.com/certificate-manager/
   - type: Documentation
-    url: https://docs.aws.amazon.com/acm/latest/APIReference/
-  - type: JSONSchema
-    url: json-schema/amazon-certificate-manager-certificate-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-certificate-manager-context.jsonld
-  - type: Pricing
-    url: https://aws.amazon.com/certificate-manager/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/certificate-manager/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/certificate-manager/faqs/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/acm/latest/userguide/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/acm/latest/APIReference/
-  - type: CLI
-    url: https://docs.aws.amazon.com/cli/latest/reference/acm/
+    url: https://docs.aws.amazon.com/acm/
+  - type: TermsOfService
+    url: https://aws.amazon.com/service-terms/
+  - type: PrivacyPolicy
+    url: https://aws.amazon.com/privacy/
+  - type: Support
+    url: https://aws.amazon.com/premiumsupport/
+  - type: Blog
+    url: https://aws.amazon.com/blogs/security/
+  - type: GitHubOrganization
+    url: https://github.com/aws
+  - type: Console
+    url: https://console.aws.amazon.com/acm/
+  - type: SignUp
+    url: https://signin.aws.amazon.com/signup?request_type=register
+  - type: Login
+    url: https://aws.amazon.com/console/
+  - type: StatusPage
+    url: https://health.aws.amazon.com/health/status
+  - type: KnowledgeCenter
+    url: https://repost.aws/knowledge-center
+  - type: YouTube
+    url: https://www.youtube.com/user/AmazonWebServices
+  - type: StackOverflow
+    url: https://stackoverflow.com/questions/tagged/aws-certificate-manager
+  - type: Contact
+    url: https://aws.amazon.com/contact-us/
   - type: Security
     url: https://docs.aws.amazon.com/acm/latest/userguide/security.html
-  - type: JSONSchema
-    url: json-schema/certificate-manager-request-certificate-request-schema.json
-  - type: JSONSchema
-    url: json-schema/certificate-manager-request-certificate-response-schema.json
-  - type: JSONSchema
-    url: json-schema/certificate-manager-list-certificates-response-schema.json
-  - type: JSONSchema
-    url: json-schema/certificate-manager-describe-certificate-response-schema.json
-  - type: Example
-    url: examples/certificate-manager-request-certificate-request-example.json
-  - type: Example
-    url: examples/certificate-manager-request-certificate-response-example.json
-  - type: Example
-    url: examples/certificate-manager-list-certificates-response-example.json
-  - type: Example
-    url: examples/certificate-manager-describe-certificate-response-example.json
-  - type: Packages
-    url: packages/amazon-certificate-manager-packages.yml
-  - type: ErrorCatalog
-    url: errors/amazon-certificate-manager-problem-types.yml
-common:
-- type: MCPServer
-  url: mcp/amazon-certificate-manager-mcp.yml
-- type: Overlay
-  url: overlays/amazon-certificate-manager-openapi-overlay.yaml
-- type: AgenticAccess
-  url: agentic-access/amazon-certificate-manager-agentic-access.yml
-- type: TrustCenter
-  url: security/amazon-certificate-manager-trust-center.yml
-- type: VulnerabilityDisclosure
-  url: security/amazon-certificate-manager-vulnerability-disclosure.yml
-- type: DomainSecurity
-  url: security/amazon-certificate-manager-domain-security.yml
-- type: Portal
-  url: https://aws.amazon.com/
-- type: Website
-  url: https://aws.amazon.com/certificate-manager/
-- type: Documentation
-  url: https://docs.aws.amazon.com/acm/
-- type: TermsOfService
-  url: https://aws.amazon.com/service-terms/
-- type: PrivacyPolicy
-  url: https://aws.amazon.com/privacy/
-- type: Support
-  url: https://aws.amazon.com/premiumsupport/
-- type: Blog
-  url: https://aws.amazon.com/blogs/security/
-- type: GitHubOrganization
-  url: https://github.com/aws
-- type: Console
-  url: https://console.aws.amazon.com/acm/
-- type: SignUp
-  url: https://signin.aws.amazon.com/signup?request_type=register
-- type: Login
-  url: https://aws.amazon.com/console/
-- type: StatusPage
-  url: https://health.aws.amazon.com/health/status
-- type: KnowledgeCenter
-  url: https://repost.aws/knowledge-center
-- type: YouTube
-  url: https://www.youtube.com/user/AmazonWebServices
-- type: StackOverflow
-  url: https://stackoverflow.com/questions/tagged/aws-certificate-manager
-- type: Contact
-  url: https://aws.amazon.com/contact-us/
-- type: Security
-  url: https://docs.aws.amazon.com/acm/latest/userguide/security.html
-- type: Compliance
-  url: https://aws.amazon.com/compliance/
-- type: SpectralRules
-  url: rules/amazon-certificate-manager-spectral-rules.yml
-- type: Vocabulary
-  url: vocabulary/amazon-certificate-manager-vocabulary.yaml
-- type: WellKnown
-  url: well-known/amazon-certificate-manager-well-known.yml
-- type: SecurityTxt
-  url: well-known/amazon-certificate-manager-security.txt
-- type: LLMsTxt
-  url: llms/amazon-certificate-manager-llms.txt
-- type: Conformance
-  url: conformance/amazon-certificate-manager-conformance.yml
-- type: Lifecycle
-  url: lifecycle/amazon-certificate-manager-lifecycle.yml
-- type: NaftikoCapability
-  url: capabilities/certificate-lifecycle-management.yaml
-- type: Features
-  data:
-  - name: Automated Certificate Renewal
-    description: Managed renewal for Amazon-issued SSL/TLS certificates, reducing manual maintenance overhead.
-  - name: Public and Private Certificates
-    description: Provision both public certificates validated via DNS or email, and private certificates issued by a private CA.
-  - name: FIPS-Compliant Key Storage
-    description: Strong encryption and key management best practices for protecting and storing private keys.
-  - name: Integrated AWS Service Deployment
-    description: Deploy certificates to CloudFront, Elastic Load Balancing, API Gateway, and other integrated AWS services at no cost.
-  - name: Hybrid and Multicloud Support
-    description: Provision and manage certificates for EC2, containers, on-premises hosts, and multicloud workloads.
-- type: UseCases
-  data:
-  - name: Website Protection
-    description: Securely terminate HTTPS traffic to public websites and web applications using ACM certificates.
-  - name: Internal Service Security
-    description: Protect private network communication between servers, mobile devices, IoT devices, and internal applications.
-  - name: Uptime Maintenance
-    description: Automated certificate lifecycle management prevents certificate expiration-related service downtime.
-  - name: Compliance and Audit
-    description: Centralize certificate management to meet compliance requirements and simplify security audits.
-- type: Integrations
-  data:
-  - name: Amazon CloudFront
-    description: Deploy ACM certificates to CloudFront distributions for HTTPS content delivery.
-  - name: Elastic Load Balancing
-    description: Attach ACM certificates to Application, Network, and Classic Load Balancers.
-  - name: Amazon API Gateway
-    description: Use ACM certificates for custom domain names in API Gateway.
-  - name: AWS IAM
-    description: Control access to ACM operations via IAM policies and roles.
-  - name: AWS CloudTrail
-    description: Audit all ACM API calls via CloudTrail for compliance and security monitoring.
+  - type: Compliance
+    url: https://aws.amazon.com/compliance/
+  - type: SpectralRules
+    url: rules/amazon-certificate-manager-spectral-rules.yml
+  - type: Vocabulary
+    url: vocabulary/amazon-certificate-manager-vocabulary.yaml
+  - type: WellKnown
+    url: well-known/amazon-certificate-manager-well-known.yml
+  - type: SecurityTxt
+    url: well-known/amazon-certificate-manager-security.txt
+  - type: LLMsTxt
+    url: llms/amazon-certificate-manager-llms.txt
+  - type: Conformance
+    url: conformance/amazon-certificate-manager-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-certificate-manager-lifecycle.yml
+  - type: Features
+    data:
+      - name: Automated Certificate Renewal
+        description: Managed renewal for Amazon-issued SSL/TLS certificates, reducing manual maintenance overhead.
+      - name: Public and Private Certificates
+        description: >-
+          Provision both public certificates validated via DNS or email, and private certificates issued by a private
+          CA.
+      - name: FIPS-Compliant Key Storage
+        description: Strong encryption and key management best practices for protecting and storing private keys.
+      - name: Integrated AWS Service Deployment
+        description: >-
+          Deploy certificates to CloudFront, Elastic Load Balancing, API Gateway, and other integrated AWS services at
+          no cost.
+      - name: Hybrid and Multicloud Support
+        description: Provision and manage certificates for EC2, containers, on-premises hosts, and multicloud workloads.
+  - type: UseCases
+    data:
+      - name: Website Protection
+        description: Securely terminate HTTPS traffic to public websites and web applications using ACM certificates.
+      - name: Internal Service Security
+        description: Protect private network communication between servers, mobile devices, IoT devices, and internal applications.
+      - name: Uptime Maintenance
+        description: Automated certificate lifecycle management prevents certificate expiration-related service downtime.
+      - name: Compliance and Audit
+        description: Centralize certificate management to meet compliance requirements and simplify security audits.
+  - type: Integrations
+    data:
+      - name: Amazon CloudFront
+        description: Deploy ACM certificates to CloudFront distributions for HTTPS content delivery.
+      - name: Elastic Load Balancing
+        description: Attach ACM certificates to Application, Network, and Classic Load Balancers.
+      - name: Amazon API Gateway
+        description: Use ACM certificates for custom domain names in API Gateway.
+      - name: AWS IAM
+        description: Control access to ACM operations via IAM policies and roles.
+      - name: AWS CloudTrail
+        description: Audit all ACM API calls via CloudTrail for compliance and security monitoring.
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-  url: https://apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+    url: https://apievangelist.com
 tags:
-- AWS
-- Certificates
-- Encryption
-- Security
-- SSL
-- TLS
+  - AWS
+  - Certificates
+  - Encryption
+  - Security
+  - SSL
+  - TLS
