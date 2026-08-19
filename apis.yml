@@ -14,7 +14,7 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-certificate-manager.png
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 description: >-
   AWS Certificate Manager (ACM) handles the complexity of creating, storing, and renewing public and private SSL/TLS
   X.509 certificates and keys that protect your AWS websites and applications, enabling you to manage certificate
