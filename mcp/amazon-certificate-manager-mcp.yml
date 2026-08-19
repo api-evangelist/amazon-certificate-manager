@@ -2,19 +2,16 @@ generated: '2026-06-20'
 method: derived
 status: candidate
 source: openapi/amazon-certificate-manager-openapi.yml
-note: >-
-  No ACM-specific hosted/remote MCP server is published by AWS. AWS's general
-  MCP tooling (awslabs) wraps the CLI/API surface broadly rather than shipping a
-  dedicated ACM server. The tools below are a candidate list derived one-to-one
-  from the operationIds in the repository OpenAPI. Not an official server.
+note: No ACM-specific hosted/remote MCP server is published by AWS. AWS's general MCP tooling (awslabs)
+  wraps the CLI/API surface broadly rather than shipping a dedicated ACM server. The tools below are a
+  candidate list derived one-to-one from the operationIds in the repository OpenAPI. Not an official server.
 server:
   name: amazon-certificate-manager
   transport: stdio
 tools:
 - name: RequestCertificate
-  description: >-
-    Requests an ACM certificate for use with other AWS services (public
-    DNS/email-validated or private CA-issued).
+  description: Requests an ACM certificate for use with other AWS services (public DNS/email-validated
+    or private CA-issued).
   source_operation: openapi/amazon-certificate-manager-openapi.yml#RequestCertificate
 - name: ListCertificates
   description: Retrieves a list of certificate ARNs and domain names, optionally filtered by status.
@@ -25,3 +22,9 @@ tools:
 - name: DeleteCertificate
   description: Deletes a certificate and its associated private key.
   source_operation: openapi/amazon-certificate-manager-openapi.yml#DeleteCertificate
+deployment:
+  mode: none
+  verified: derived
+  tools: 4
+  checked: '2026-08-12'
+  source: catalog MCP census

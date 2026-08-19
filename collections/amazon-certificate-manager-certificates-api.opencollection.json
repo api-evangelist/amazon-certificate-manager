@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Certificate Manager Certificates API",
+    "version": "2015-12-08"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Certificates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Certificate Manager Request a Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://acm.{region}.amazonaws.com/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Requests an ACM certificate for use with other AWS services. You can request a public certificate validated via DNS or email, or a private certificate issued by a private certificate authority (CA)."
+        },
+        {
+          "info": {
+            "name": "Amazon Certificate Manager List Certificates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://acm.{region}.amazonaws.com/certificates",
+            "params": [
+              {
+                "name": "maxItems",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of certificates to return."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Token for pagination."
+              },
+              {
+                "name": "certificateStatuses",
+                "value": "",
+                "type": "query",
+                "description": "Filter by certificate status."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of certificate ARNs and domain names. You can filter the list by certificate status."
+        },
+        {
+          "info": {
+            "name": "Amazon Certificate Manager Describe a Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://acm.{region}.amazonaws.com/certificates/:certificateArn",
+            "params": [
+              {
+                "name": "certificateArn",
+                "value": "",
+                "type": "path",
+                "description": "The ARN of the ACM certificate."
+              }
+            ]
+          },
+          "docs": "Returns detailed metadata about the specified ACM certificate, including domain name, status, and validation information."
+        },
+        {
+          "info": {
+            "name": "Amazon Certificate Manager Delete a Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://acm.{region}.amazonaws.com/certificates/:certificateArn",
+            "params": [
+              {
+                "name": "certificateArn",
+                "value": "",
+                "type": "path",
+                "description": "The ARN of the ACM certificate to delete."
+              }
+            ]
+          },
+          "docs": "Deletes a certificate and its associated private key. You cannot delete a certificate that is in use by another AWS service."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
