@@ -311,6 +311,16 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    InternalFailureException:
+      type: object
+      properties:
+        message:
+          type: string
+    ResourceInUseException:
+      type: object
+      properties:
+        message:
+          type: string
     RequestCertificateRequest:
       type: object
       required:
@@ -333,7 +343,41 @@ components:
         IdempotencyToken:
           type: string
           description: Token to prevent duplicate requests.
-    ResourceInUseException:
+    ListCertificatesResponse:
+      type: object
+      properties:
+        CertificateSummaryList:
+          type: array
+          items:
+            type: object
+            properties:
+              CertificateArn:
+                type: string
+              DomainName:
+                type: string
+              Status:
+                type: string
+              Type:
+                type: string
+        NextToken:
+          type: string
+    ResourceNotFoundException:
+      type: object
+      properties:
+        message:
+          type: string
+    RequestCertificateResponse:
+      type: object
+      properties:
+        CertificateArn:
+          type: string
+          description: The ARN of the issued certificate.
+    InvalidParameterException:
+      type: object
+      properties:
+        message:
+          type: string
+    TooManyRequestsException:
       type: object
       properties:
         message:
@@ -374,50 +418,6 @@ components:
               type: string
             KeyAlgorithm:
               type: string
-    RequestCertificateResponse:
-      type: object
-      properties:
-        CertificateArn:
-          type: string
-          description: The ARN of the issued certificate.
-    TooManyRequestsException:
-      type: object
-      properties:
-        message:
-          type: string
-    ResourceNotFoundException:
-      type: object
-      properties:
-        message:
-          type: string
-    ListCertificatesResponse:
-      type: object
-      properties:
-        CertificateSummaryList:
-          type: array
-          items:
-            type: object
-            properties:
-              CertificateArn:
-                type: string
-              DomainName:
-                type: string
-              Status:
-                type: string
-              Type:
-                type: string
-        NextToken:
-          type: string
-    InvalidParameterException:
-      type: object
-      properties:
-        message:
-          type: string
-    InternalFailureException:
-      type: object
-      properties:
-        message:
-          type: string
 externalDocs:
   description: Amazon Certificate Manager API Reference
   url: https://docs.aws.amazon.com/acm/latest/APIReference/

@@ -1,7 +1,7 @@
 {
   "provider": "amazon-certificate-manager",
   "sources": [
-    "amazon-certificate-manager-certificates-api-openapi.yml"
+    "_original/amazon-certificate-manager-openapi.yml"
   ],
   "outputs": [
     "amazon-certificate-manager-certificates-api-openapi.yml"
@@ -10,7 +10,11 @@
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-certificate-manager-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-certificate-manager-certificates-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
