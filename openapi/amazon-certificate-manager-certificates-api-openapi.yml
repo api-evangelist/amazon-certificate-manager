@@ -311,77 +311,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    InternalFailureException:
-      type: object
-      properties:
-        message:
-          type: string
-    ResourceInUseException:
-      type: object
-      properties:
-        message:
-          type: string
-    RequestCertificateRequest:
-      type: object
-      required:
-      - DomainName
-      properties:
-        DomainName:
-          type: string
-          description: The fully qualified domain name for the certificate.
-        SubjectAlternativeNames:
-          type: array
-          items:
-            type: string
-          description: Additional FQDNs to be included in the certificate.
-        ValidationMethod:
-          type: string
-          enum:
-          - EMAIL
-          - DNS
-          description: The method to use for validation.
-        IdempotencyToken:
-          type: string
-          description: Token to prevent duplicate requests.
-    ListCertificatesResponse:
-      type: object
-      properties:
-        CertificateSummaryList:
-          type: array
-          items:
-            type: object
-            properties:
-              CertificateArn:
-                type: string
-              DomainName:
-                type: string
-              Status:
-                type: string
-              Type:
-                type: string
-        NextToken:
-          type: string
-    ResourceNotFoundException:
-      type: object
-      properties:
-        message:
-          type: string
-    RequestCertificateResponse:
-      type: object
-      properties:
-        CertificateArn:
-          type: string
-          description: The ARN of the issued certificate.
-    InvalidParameterException:
-      type: object
-      properties:
-        message:
-          type: string
-    TooManyRequestsException:
-      type: object
-      properties:
-        message:
-          type: string
     DescribeCertificateResponse:
       type: object
       properties:
@@ -418,6 +347,77 @@ components:
               type: string
             KeyAlgorithm:
               type: string
+    ListCertificatesResponse:
+      type: object
+      properties:
+        CertificateSummaryList:
+          type: array
+          items:
+            type: object
+            properties:
+              CertificateArn:
+                type: string
+              DomainName:
+                type: string
+              Status:
+                type: string
+              Type:
+                type: string
+        NextToken:
+          type: string
+    ResourceInUseException:
+      type: object
+      properties:
+        message:
+          type: string
+    RequestCertificateRequest:
+      type: object
+      required:
+      - DomainName
+      properties:
+        DomainName:
+          type: string
+          description: The fully qualified domain name for the certificate.
+        SubjectAlternativeNames:
+          type: array
+          items:
+            type: string
+          description: Additional FQDNs to be included in the certificate.
+        ValidationMethod:
+          type: string
+          enum:
+          - EMAIL
+          - DNS
+          description: The method to use for validation.
+        IdempotencyToken:
+          type: string
+          description: Token to prevent duplicate requests.
+    InternalFailureException:
+      type: object
+      properties:
+        message:
+          type: string
+    TooManyRequestsException:
+      type: object
+      properties:
+        message:
+          type: string
+    InvalidParameterException:
+      type: object
+      properties:
+        message:
+          type: string
+    RequestCertificateResponse:
+      type: object
+      properties:
+        CertificateArn:
+          type: string
+          description: The ARN of the issued certificate.
+    ResourceNotFoundException:
+      type: object
+      properties:
+        message:
+          type: string
 externalDocs:
   description: Amazon Certificate Manager API Reference
   url: https://docs.aws.amazon.com/acm/latest/APIReference/
