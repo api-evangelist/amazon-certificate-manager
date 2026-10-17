@@ -311,6 +311,11 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ResourceNotFoundException:
+      type: object
+      properties:
+        message:
+          type: string
     RequestCertificateRequest:
       type: object
       required:
@@ -338,41 +343,7 @@ components:
       properties:
         message:
           type: string
-    ResourceInUseException:
-      type: object
-      properties:
-        message:
-          type: string
     InvalidParameterException:
-      type: object
-      properties:
-        message:
-          type: string
-    ListCertificatesResponse:
-      type: object
-      properties:
-        CertificateSummaryList:
-          type: array
-          items:
-            type: object
-            properties:
-              CertificateArn:
-                type: string
-              DomainName:
-                type: string
-              Status:
-                type: string
-              Type:
-                type: string
-        NextToken:
-          type: string
-    RequestCertificateResponse:
-      type: object
-      properties:
-        CertificateArn:
-          type: string
-          description: The ARN of the issued certificate.
-    ResourceNotFoundException:
       type: object
       properties:
         message:
@@ -413,11 +384,40 @@ components:
               type: string
             KeyAlgorithm:
               type: string
+    ListCertificatesResponse:
+      type: object
+      properties:
+        CertificateSummaryList:
+          type: array
+          items:
+            type: object
+            properties:
+              CertificateArn:
+                type: string
+              DomainName:
+                type: string
+              Status:
+                type: string
+              Type:
+                type: string
+        NextToken:
+          type: string
     InternalFailureException:
       type: object
       properties:
         message:
           type: string
+    ResourceInUseException:
+      type: object
+      properties:
+        message:
+          type: string
+    RequestCertificateResponse:
+      type: object
+      properties:
+        CertificateArn:
+          type: string
+          description: The ARN of the issued certificate.
 externalDocs:
   description: Amazon Certificate Manager API Reference
   url: https://docs.aws.amazon.com/acm/latest/APIReference/
