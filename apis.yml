@@ -85,6 +85,8 @@ apis:
       - type: ErrorCatalog
         url: errors/amazon-certificate-manager-problem-types.yml
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amazon-certificate-manager/overview
   - type: CapabilityMap
     url: capabilities/amazon-certificate-manager-capability-edges.yml
     name: Amazon Certificate Manager Business Capability Map
