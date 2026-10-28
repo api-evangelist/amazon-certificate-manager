@@ -1,4 +1,4 @@
-# Amazon Certificate Manager (amazon-certificate-manager)
+# Amazon Certificate Manager
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,161 +66,172 @@
 
 AWS Certificate Manager (ACM) handles the complexity of creating, storing, and renewing public and private SSL/TLS X.509 certificates and keys that protect your AWS websites and applications, enabling you to manage certificate lifecycles centrally.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/amazon-certificate-manager/refs/heads/main/apis.yml)
+**Areas:** AWS · Certificates · Encryption · Security · SSL · TLS
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Amazon Certificate Manager on APIs.io
 
-## Tags:
+Everything profiled for Amazon Certificate Manager is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-certificate-manager/](https://apis.io/providers/amazon-certificate-manager/)** — or go straight to one of the APIs or properties below.
 
- - AWS, Certificates, Encryption, Security, SSL, TLS
+### APIs (7)
 
-## Timestamps
+- [Amazon Certificate Manager Certificates API](https://apis.io/apis/amazon-certificate-manager/amazon-certificate-manager-certificates-api/) — Operations for requesting, describing, and managing SSL/TLS certificates
+- [Amazon Certificate Manager Certificate Manager Acme Account API](https://apis.io/apis/amazon-certificate-manager/amazon-certificate-manager-acme-account-api/) — The Certificate Manager Acme Account API from Amazon Certificate Manager — 3 operation(s) for certificate manager acme account.
+- [Amazon Certificate Manager Certificate Manager Acme Domain Validation API](https://apis.io/apis/amazon-certificate-manager/amazon-certificate-manager-acme-domain-validation-api/) — The Certificate Manager Acme Domain Validation API from Amazon Certificate Manager — 5 operation(s) for certificate manager acme domain validation.
+- [Amazon Certificate Manager Certificate Manager Acme Endpoint API](https://apis.io/apis/amazon-certificate-manager/amazon-certificate-manager-acme-endpoint-api/) — The Certificate Manager Acme Endpoint API from Amazon Certificate Manager — 5 operation(s) for certificate manager acme endpoint.
+- [Amazon Certificate Manager Certificate Manager Acme External Account Binding API](https://apis.io/apis/amazon-certificate-manager/amazon-certificate-manager-acme-external-account-binding-api/) — The Certificate Manager Acme External Account Binding API from Amazon Certificate Manager — 5 operation(s) for certificate manager acme external account…
+- [Amazon Certificate Manager Certificate Manager Operations API](https://apis.io/apis/amazon-certificate-manager/amazon-certificate-manager-operations-api/) — The Certificate Manager Operations API from Amazon Certificate Manager — 9 operation(s) for certificate manager operations.
+- [Amazon Certificate Manager Certificate Manager Tag API](https://apis.io/apis/amazon-certificate-manager/amazon-certificate-manager-tag-api/) — The Certificate Manager Tag API from Amazon Certificate Manager — 4 operation(s) for certificate manager tag.
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Amazon Certificate Manager API
-API for provisioning, managing, and deploying public and private SSL/TLS certificates for use with AWS services and your internal connected resources.
+#### MCP servers (1)
 
-**Human URL:** [https://aws.amazon.com/certificate-manager/](https://aws.amazon.com/certificate-manager/)
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags:
+- [amazon-certificate-manager](https://apis.io/servers/amazon-certificate-manager/amazon-certificate-manager/)
 
- - AWS, Certificates, Encryption, Security, SSL, TLS
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://docs.aws.amazon.com/acm/latest/APIReference/)
-- [OpenAPI](openapi/amazon-certificate-manager-openapi.yml)
-- [OpenAPI](https://api.apis.guru/v2/specs/amazonaws.com/acm/2015-12-08/openapi.yaml)
-- [JSONSchema](json-schema/amazon-certificate-manager-certificate-schema.json)
-- [JSONLD](json-ld/amazon-certificate-manager-context.jsonld)
-- [Pricing](https://aws.amazon.com/certificate-manager/pricing/)
-- [GettingStarted](https://aws.amazon.com/certificate-manager/getting-started/)
-- [FAQ](https://aws.amazon.com/certificate-manager/faqs/)
-- [APIReference](https://docs.aws.amazon.com/acm/latest/APIReference/)
-- [CLI](https://docs.aws.amazon.com/cli/latest/reference/acm/)
-- [Security](https://docs.aws.amazon.com/acm/latest/userguide/security.html)
-- [JSONSchema](json-schema/certificate-manager-request-certificate-request-schema.json)
-- [JSONSchema](json-schema/certificate-manager-request-certificate-response-schema.json)
-- [JSONSchema](json-schema/certificate-manager-list-certificates-response-schema.json)
-- [JSONSchema](json-schema/certificate-manager-describe-certificate-response-schema.json)
-- [Example](examples/certificate-manager-request-certificate-request-example.json)
-- [Example](examples/certificate-manager-request-certificate-response-example.json)
-- [Example](examples/certificate-manager-list-certificates-response-example.json)
-- [Example](examples/certificate-manager-describe-certificate-response-example.json)
+- [Amazon Certificate Manager Agentic Access](https://apis.io/agentic-access/amazon-certificate-manager/amazon-certificate-manager-agentic-access/)
 
-## Common Properties
+#### JSON Schema (5)
 
-- [Portal](https://aws.amazon.com/)
+The data models the API reads and writes.
+
+- [Amazon Certificate Manager Certificate](https://apis.io/schemas/amazon-certificate-manager/amazon-certificate-manager-certificate/)
+- [DescribeCertificateResponse](https://apis.io/schemas/amazon-certificate-manager/certificate-manager-describe-certificate-response/)
+- [ListCertificatesResponse](https://apis.io/schemas/amazon-certificate-manager/certificate-manager-list-certificates-response/)
+- [RequestCertificateRequest](https://apis.io/schemas/amazon-certificate-manager/certificate-manager-request-certificate-request/)
+- [RequestCertificateResponse](https://apis.io/schemas/amazon-certificate-manager/certificate-manager-request-certificate-response/)
+
+#### JSON Structure (4)
+
+Data models expressed in JSON Structure.
+
+- [Certificate Manager Describe Certificate Response Structure](https://apis.io/json-structure/amazon-certificate-manager/certificate-manager-describe-certificate-response-structure/)
+- [Certificate Manager List Certificates Response Structure](https://apis.io/json-structure/amazon-certificate-manager/certificate-manager-list-certificates-response-structure/)
+- [Certificate Manager Request Certificate Request Structure](https://apis.io/json-structure/amazon-certificate-manager/certificate-manager-request-certificate-request-structure/)
+- [Certificate Manager Request Certificate Response Structure](https://apis.io/json-structure/amazon-certificate-manager/certificate-manager-request-certificate-response-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Certificate Manager Context](https://apis.io/jsonld/amazon-certificate-manager/amazon-certificate-manager-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Certificate Manager Vocabulary](https://apis.io/vocabularies/amazon-certificate-manager/amazon-certificate-manager-vocabulary/)
+
+#### Examples (4)
+
+Example requests and responses.
+
+- [Certificate Manager Describe Certificate Response Example](https://apis.io/examples/amazon-certificate-manager/certificate-manager-describe-certificate-response-example/)
+- [Certificate Manager List Certificates Response Example](https://apis.io/examples/amazon-certificate-manager/certificate-manager-list-certificates-response-example/)
+- [Certificate Manager Request Certificate Request Example](https://apis.io/examples/amazon-certificate-manager/certificate-manager-request-certificate-request-example/)
+- [Certificate Manager Request Certificate Response Example](https://apis.io/examples/amazon-certificate-manager/certificate-manager-request-certificate-response-example/)
+
+#### Collections (1)
+
+Postman and Open Collection request collections.
+
+- [Amazon Certificate Manager Certificates API](https://apis.io/collections/amazon-certificate-manager/open-amazon-certificate-manager-certificates-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Amazon Certificate Manager Openapi Overlay](https://apis.io/overlays/amazon-certificate-manager/amazon-certificate-manager-openapi-overlay/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon Certificate Manager — jsonschema rules](https://apis.io/rules/amazon-certificate-manager/amazon-certificate-manager-jsonschema-spectral-rules/)
+- [Amazon Certificate Manager API Rules](https://apis.io/rules/amazon-certificate-manager/amazon-certificate-manager-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Certificate Manager Domain Security](https://apis.io/security/amazon-certificate-manager/amazon-certificate-manager-domain-security/)
+- [Amazon Certificate Manager Trust Center](https://apis.io/security/amazon-certificate-manager/amazon-certificate-manager-trust-center/)
+- [Amazon Certificate Manager Vulnerability Disclosure](https://apis.io/security/amazon-certificate-manager/amazon-certificate-manager-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://aws.amazon.com/certificate-manager/)
 - [Documentation](https://docs.aws.amazon.com/acm/)
-- [TermsOfService](https://aws.amazon.com/service-terms/)
-- [PrivacyPolicy](https://aws.amazon.com/privacy/)
+- [Sign up](https://signin.aws.amazon.com/signup?request_type=register)
 - [Support](https://aws.amazon.com/premiumsupport/)
 - [Blog](https://aws.amazon.com/blogs/security/)
-- [GitHubOrganization](https://github.com/aws)
-- [Console](https://console.aws.amazon.com/acm/)
-- [SignUp](https://signin.aws.amazon.com/signup?request_type=register)
-- [StatusPage](https://health.aws.amazon.com/health/status)
-- [KnowledgeCenter](https://repost.aws/knowledge-center)
-- [YouTube](https://www.youtube.com/user/AmazonWebServices)
-- [StackOverflow](https://stackoverflow.com/questions/tagged/aws-certificate-manager)
-- [Contact](https://aws.amazon.com/contact-us/)
+- [Security](https://docs.aws.amazon.com/acm/latest/userguide/security.html)
 - [Compliance](https://aws.amazon.com/compliance/)
-- [SpectralRules](rules/amazon-certificate-manager-spectral-rules.yml)
-- [Vocabulary](vocabulary/amazon-certificate-manager-vocabulary.yaml)
-- [NaftikoCapability](capabilities/certificate-lifecycle-management.yaml)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Automated Certificate Renewal | Managed renewal for Amazon-issued SSL/TLS certificates, reducing manual maintenance overhead. |
-| Public and Private Certificates | Provision both public certificates validated via DNS or email, and private certificates issued by a private CA. |
-| FIPS-Compliant Key Storage | Strong encryption and key management best practices for protecting and storing private keys. |
-| Integrated AWS Service Deployment | Deploy certificates to CloudFront, Elastic Load Balancing, API Gateway, and other integrated AWS services at no cost. |
-| Hybrid and Multicloud Support | Provision and manage certificates for EC2, containers, on-premises hosts, and multicloud workloads. |
+**Kin Score 56.5** — strong · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 63.7 |
+| Contract governance | 31.8 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 60.7 |
+| Access clarity | 60.5 |
 
-| Name | Description |
-|------|-------------|
-| Website Protection | Securely terminate HTTPS traffic to public websites and web applications using ACM certificates. |
-| Internal Service Security | Protect private network communication between servers, mobile devices, IoT devices, and internal applications. |
-| Uptime Maintenance | Automated certificate lifecycle management prevents certificate expiration-related service downtime. |
-| Compliance and Audit | Centralize certificate management to meet compliance requirements and simplify security audits. |
+**Agent readiness 33.5** — agent-ready
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | verified |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
 
-| Name | Description |
-|------|-------------|
-| Amazon CloudFront | Deploy ACM certificates to CloudFront distributions for HTTPS content delivery. |
-| Elastic Load Balancing | Attach ACM certificates to Application, Network, and Classic Load Balancers. |
-| Amazon API Gateway | Use ACM certificates for custom domain names in API Gateway. |
-| AWS IAM | Control access to ACM operations via IAM policies and roles. |
-| AWS CloudTrail | Audit all ACM API calls via CloudTrail for compliance and security monitoring. |
+**Regulatory alignment 29.4** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-certificate-manager/](https://apis.io/providers/amazon-certificate-manager/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [Amazon Certificate Manager API](openapi/amazon-certificate-manager-openapi.yml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon Certificate Manager: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-- [Certificate Schema](json-schema/amazon-certificate-manager-certificate-schema.json)
-- [Request Certificate Request](json-schema/certificate-manager-request-certificate-request-schema.json)
-- [Request Certificate Response](json-schema/certificate-manager-request-certificate-response-schema.json)
-- [List Certificates Response](json-schema/certificate-manager-list-certificates-response-schema.json)
-- [Describe Certificate Response](json-schema/certificate-manager-describe-certificate-response-schema.json)
-
-### JSON Structure
-
-- [Request Certificate Request](json-structure/certificate-manager-request-certificate-request-structure.json)
-- [Request Certificate Response](json-structure/certificate-manager-request-certificate-response-structure.json)
-- [List Certificates Response](json-structure/certificate-manager-list-certificates-response-structure.json)
-- [Describe Certificate Response](json-structure/certificate-manager-describe-certificate-response-structure.json)
-
-### JSON-LD
-
-- [Amazon Certificate Manager Context](json-ld/amazon-certificate-manager-context.jsonld)
-
-### Examples
-
-- [Request Certificate Request](examples/certificate-manager-request-certificate-request-example.json)
-- [Request Certificate Response](examples/certificate-manager-request-certificate-response-example.json)
-- [List Certificates Response](examples/certificate-manager-list-certificates-response-example.json)
-- [Describe Certificate Response](examples/certificate-manager-describe-certificate-response-example.json)
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Shared Per-API Definitions
-
-- [Amazon Certificate Manager](capabilities/shared/certificate-manager.yaml) — 4 operations for SSL/TLS certificate provisioning and management
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Certificate Lifecycle Management](capabilities/certificate-lifecycle-management.yaml) | ACM | 4 | DevOps Engineer, Security Engineer |
-
-## Vocabulary
-
-- [Amazon Certificate Manager Vocabulary](vocabulary/amazon-certificate-manager-vocabulary.yaml) — Unified taxonomy mapping 1 resource, 4 actions, 1 workflow, and 2 personas across operational (OpenAPI) and capability (Naftiko) dimensions
-
-## Rules
-
-- [Amazon Certificate Manager Spectral Rules](rules/amazon-certificate-manager-spectral-rules.yml) — 27 rules across 10 categories enforcing Amazon Certificate Manager API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-certificate-manager/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
